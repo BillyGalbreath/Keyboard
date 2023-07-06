@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.pl3x.keyboard.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "keyboard.refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "KeyBindingRegistryImplAccessor",
+    "KeyMappingAccessor",
+    "MinecraftAccessor",
+    "OptionsAccessor"
+  ]
+}

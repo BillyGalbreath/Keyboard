@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "keyboard",
+  "version": "${version}",
+  "name": "Keyboard",
+  "description": "Keyboard library for Fabric mods",
+  "authors": [
+    "BillyGalbreath"
+  ],
+  "contact": {
+    "homepage": "https://github.com/BillyGalbreath/Keyboard/",
+    "issues": "https://github.com/BillyGalbreath/Keyboard/issues/"
+  },
+  "license": "MIT",
+  "icon": "logo.png",
+  "mixins": [
+    "keyboard.mixins.json"
+  ],
+  "depends": {
+    "fabric": ">=${fabricApiVersion}",
+    "java": ">=17"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/kHWFx7bFZh"
+      },
+      "badges": [
+        "library"
+      ],
+      "update_checker": false
+    }
+  }
+}
