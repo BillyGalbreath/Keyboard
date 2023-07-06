@@ -12,16 +12,17 @@ import net.pl3x.keyboard.mixin.KeyBindingRegistryImplAccessor;
 import net.pl3x.keyboard.mixin.MinecraftAccessor;
 import net.pl3x.keyboard.mixin.OptionsAccessor;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("UnstableApiUsage")
 public class KeyBindRegistry {
     private final Map<String, Key> keys = new HashMap<>();
 
-    public List<Key> getKeys() {
+    public @NotNull List<Key> getKeys() {
         return this.keys.values().stream().toList();
     }
 
-    public Key getKey(String name) {
+    public @Nullable Key getKey(@NotNull String name) {
         return this.keys.get(name);
     }
 
