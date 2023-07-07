@@ -9,10 +9,11 @@
   ],
   "contact": {
     "homepage": "https://github.com/BillyGalbreath/Keyboard/",
+    "sources": "https://github.com/BillyGalbreath/Keyboard/",
     "issues": "https://github.com/BillyGalbreath/Keyboard/issues/"
   },
   "license": "MIT",
-  "icon": "logo.png",
+  "icon": "assets/keyboard/textures/logo.png",
   "mixins": [
     "keyboard.mixins.json"
   ],
@@ -23,7 +24,8 @@
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.discord": "https://discord.gg/kHWFx7bFZh"
+        "modmenu.discord": "https://discord.gg/kHWFx7bFZh",
+        "modrinth.download.link": "https://modrinth.com/mod/keyboard/"
       },
       "badges": [
         "library"
