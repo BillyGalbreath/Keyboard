@@ -1,6 +1,7 @@
 package net.pl3x.keyboard;
 
 import com.google.common.collect.Lists;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,9 @@ public class KeyBindRegistry {
         this.keys.put(key.getName(), key);
 
         // rebuild vanilla's internal bindings list
-        client.options.keyMappings = KeyBindingRegistryImpl.process(client.options.keyMappings);
+        if (client.options != null) {
+            client.options.keyMappings = KeyBindingRegistryImpl.process(client.options.keyMappings);
+        }
 
         // give the key back
         return key;
@@ -56,7 +59,8 @@ public class KeyBindRegistry {
 
     public void unregister(@NotNull Minecraft client, @NotNull Key key) {
         // try to remove the key from ours and fabric's lists
-        List<KeyMapping> allKeys = Lists.newArrayList(client.options.keyMappings);
+        @SuppressWarnings("ConstantValue") // client.options could be null here
+        List<KeyMapping> allKeys = client.options == null ? new ArrayList<>() : Lists.newArrayList(client.options.keyMappings);
         if (this.keys.remove(key.getName()) != null | KeyBindingRegistryImplAccessor.getModdedKeyBindings().remove(key) | allKeys.remove(key)) {
             // rebuild vanilla's internal bindings list if we removed the key from either
             client.options.keyMappings = allKeys.toArray(new KeyMapping[0]);
