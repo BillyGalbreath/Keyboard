@@ -21,6 +21,7 @@
     "fabric": ">=${fabricApiVersion}",
     "java": ">=17"
   },
+  "accessWidener": "keyboard.accesswidener",
   "custom": {
     "modmenu": {
       "links": {

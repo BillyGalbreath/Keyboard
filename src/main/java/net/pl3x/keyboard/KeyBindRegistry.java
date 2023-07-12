@@ -9,8 +9,6 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.pl3x.keyboard.mixin.KeyBindingRegistryImplAccessor;
-import net.pl3x.keyboard.mixin.MinecraftAccessor;
-import net.pl3x.keyboard.mixin.OptionsAccessor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -42,17 +40,15 @@ public class KeyBindRegistry {
 
         // add the key to fabric's lists
         Options options = client.options;
-        ((MinecraftAccessor) client).setOptions(null);
+        client.options = null;
         KeyBindingRegistryImpl.registerKeyBinding(key);
-        ((MinecraftAccessor) client).setOptions(options);
+        client.options = options;
 
         // store the key for ourselves to make lookups easier and stuff
         this.keys.put(key.getName(), key);
 
         // rebuild vanilla's internal bindings list
-        if (options instanceof OptionsAccessor accessor) {
-            accessor.setKeyMappings(KeyBindingRegistryImpl.process(accessor.getKeyMappings()));
-        }
+        client.options.keyMappings = KeyBindingRegistryImpl.process(client.options.keyMappings);
 
         // give the key back
         return key;
@@ -60,11 +56,10 @@ public class KeyBindRegistry {
 
     public void unregister(@NotNull Minecraft client, @NotNull Key key) {
         // try to remove the key from ours and fabric's lists
-        OptionsAccessor options = (OptionsAccessor) client.options;
-        List<KeyMapping> allKeys = Lists.newArrayList(options.getKeyMappings());
+        List<KeyMapping> allKeys = Lists.newArrayList(client.options.keyMappings);
         if (this.keys.remove(key.getName()) != null | KeyBindingRegistryImplAccessor.getModdedKeyBindings().remove(key) | allKeys.remove(key)) {
             // rebuild vanilla's internal bindings list if we removed the key from either
-            options.setKeyMappings(allKeys.toArray(new KeyMapping[0]));
+            client.options.keyMappings = allKeys.toArray(new KeyMapping[0]);
         }
     }
 }

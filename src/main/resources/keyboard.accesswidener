@@ -1,0 +1,9 @@
+accessWidener v2 named
+
+accessible field net/minecraft/client/KeyMapping CATEGORY_SORT_ORDER Ljava/util/Map;
+
+accessible field net/minecraft/client/Minecraft options Lnet/minecraft/client/Options;
+mutable field net/minecraft/client/Minecraft options Lnet/minecraft/client/Options;
+
+accessible field net/minecraft/client/Options keyMappings [Lnet/minecraft/client/KeyMapping;
+mutable field net/minecraft/client/Options keyMappings [Lnet/minecraft/client/KeyMapping;

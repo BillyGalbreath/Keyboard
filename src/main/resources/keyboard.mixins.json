@@ -9,8 +9,6 @@
   },
   "client": [
     "KeyBindingRegistryImplAccessor",
-    "KeyMappingAccessor",
-    "MinecraftAccessor",
-    "OptionsAccessor"
+    "KeyMappingAccessor"
   ]
 }

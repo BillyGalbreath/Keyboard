@@ -41,7 +41,7 @@ compileJava {
 
 javadoc {
     options.encoding = 'UTF-8'
-    options.addBooleanOption('html5', true)
+    ((CoreJavadocOptions) options).addBooleanOption('html5', true)
     title = "${rootProject.name}-${project.version} API"
 }
 
@@ -61,6 +61,7 @@ loom {
     mixin {
         defaultRefmapName = 'keyboard.refmap.json'
     }
+    accessWidenerPath = file('src/main/resources/keyboard.accesswidener')
     runConfigs.configureEach {
         ideConfigGenerated(true)
     }
@@ -72,18 +73,13 @@ publishing {
             name = 'public'
             url = uri('https://repo.pl3x.net/public')
             credentials(PasswordCredentials)
-            authentication {
-                basic(BasicAuthentication)
-            }
+            authentication.create('basic', BasicAuthentication)
         }
     }
-    publications {
-        maven(MavenPublication) {
-            groupId = "net.pl3x.keyboard"
-            artifactId = "keyboard"
-            version = "${project.version}"
-            from components.java
-        }
+    publications.create('maven', MavenPublication) {
+        groupId = "${project.group}"
+        artifactId "${project.name}"
+        version "${project.version}"
     }
 }
 
