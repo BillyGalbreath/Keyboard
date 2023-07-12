@@ -46,27 +46,27 @@ public class Keyboard {
     }
 
     public static boolean hasAltDown() {
-        return hasKeyDown(GLFW.GLFW_MOD_ALT); //hasKeyDown(GLFW.GLFW_KEY_LEFT_ALT) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_ALT);
+        return hasKeyDown(GLFW.GLFW_KEY_LEFT_ALT) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_ALT);
     }
 
     public static boolean hasCtrlDown() {
         if (Minecraft.ON_OSX) {
-            return hasKeyDown(GLFW.GLFW_MOD_SUPER); //hasKeyDown(GLFW.GLFW_KEY_LEFT_SUPER) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_SUPER);
+            return hasKeyDown(GLFW.GLFW_KEY_LEFT_SUPER) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_SUPER);
         } else {
-            return hasKeyDown(GLFW.GLFW_MOD_CONTROL); //hasKeyDown(GLFW.GLFW_KEY_LEFT_CONTROL) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_CONTROL);
+            return hasKeyDown(GLFW.GLFW_KEY_LEFT_CONTROL) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_CONTROL);
         }
     }
 
     public static boolean hasMetaDown() {
         if (Minecraft.ON_OSX) {
-            return hasKeyDown(GLFW.GLFW_MOD_CONTROL); //hasKeyDown(GLFW.GLFW_KEY_LEFT_CONTROL) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_CONTROL);
+            return hasKeyDown(GLFW.GLFW_KEY_LEFT_CONTROL) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_CONTROL);
         } else {
-            return hasKeyDown(GLFW.GLFW_MOD_SUPER); //hasKeyDown(GLFW.GLFW_KEY_LEFT_SUPER) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_SUPER);
+            return hasKeyDown(GLFW.GLFW_KEY_LEFT_SUPER) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_SUPER);
         }
     }
 
     public static boolean hasShiftDown() {
-        return hasKeyDown(GLFW.GLFW_MOD_SHIFT); //hasKeyDown(GLFW.GLFW_KEY_LEFT_SHIFT) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_SHIFT);
+        return hasKeyDown(GLFW.GLFW_KEY_LEFT_SHIFT) || hasKeyDown(GLFW.GLFW_KEY_RIGHT_SHIFT);
     }
 
     public static boolean hasKeyDown(int keycode) {
